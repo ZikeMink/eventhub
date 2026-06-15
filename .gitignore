@@ -25,3 +25,10 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Playwright generated artifacts
+playwright-report/
+test-results/
+
+# Claude Code local settings (skills are committed; local overrides are not)
+.claude/settings.local.json
