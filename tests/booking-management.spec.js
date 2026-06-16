@@ -104,7 +104,9 @@ test.describe('Booking Management — Critical Happy Paths', () => {
     await expect(page).toHaveURL(/\/bookings\/\d+/);
 
     // -- Step 3: Verify breadcrumb shows booking ref --
-    await expect(page.locator('span.font-mono.font-bold').first()).toContainText(bookingRef);
+    const bookingRefEl = page.locator('span.font-mono.font-bold').first();
+    await expect(bookingRefEl).toBeVisible({ timeout: 15000 });
+    await expect(bookingRefEl).toContainText(bookingRef);
 
     // -- Step 4: Verify event details section --
     await expect(page.getByText('Event Details')).toBeVisible();
