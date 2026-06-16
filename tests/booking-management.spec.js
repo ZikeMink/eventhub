@@ -94,8 +94,13 @@ test.describe('Booking Management — Critical Happy Paths', () => {
 
     // -- Step 2: Navigate to /bookings and click View Details --
     await page.goto(`${BASE_URL}/bookings`);
+    
     const card = page.getByTestId('booking-card').filter({ hasText: bookingRef });
-    await card.getByRole('link', { name: 'View Details' }).click();
+    await expect(card).toBeVisible({ timeout: 15000 });
+
+    const viewDetailsLink = card.getByRole('link', { name: /View Details/i });
+    await expect(viewDetailsLink).toBeVisible({ timeout: 10000 });
+    await viewDetailsLink.click();
     await expect(page).toHaveURL(/\/bookings\/\d+/);
 
     // -- Step 3: Verify breadcrumb shows booking ref --
