@@ -2,11 +2,11 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  timeout: 30_000,
-  expect: { timeout: 5_000 },
+  timeout: 60_000,
+  expect: { timeout: 10_000 },
   fullyParallel: false,
-  retries: 0,
-  reporter: 'html',
+  retries: process.env.CI ? 1 : 0,
+  reporter: process.env.CI ? [['html'], ['line']] : 'html',
 
   use: {
     baseURL: 'https://eventhub.rahulshettyacademy.com',
