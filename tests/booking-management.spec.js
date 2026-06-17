@@ -85,6 +85,7 @@ test.describe('Booking Management — Critical Happy Paths', () => {
     await expect(card).toContainText(bookingRef);
   });
 
+  // small CHANGE: added a new test case for booking detail page sections (TC-002) and updated test descriptions for clarity
   // TC-002 ───────────────────────────────────────────────────────────────────
   test('TC-002: shows all sections on booking detail page', async ({ page }) => {
     // -- Step 1: Login, clear state, create one booking --
