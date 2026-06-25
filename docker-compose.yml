@@ -1,5 +1,5 @@
 services:
-  playwright:
+  tests:
     build: .
     volumes:
       # Mount report dirs so HTML results are accessible on the host after the run
